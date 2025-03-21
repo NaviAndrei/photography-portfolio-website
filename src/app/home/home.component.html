@@ -1,0 +1,81 @@
+<div class="home-container">
+    <!-- Hero Section - like your gallery's grand entrance -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>Capturing Life's Beautiful Moments</h1>
+        <p>Professional photography that tells your story</p>
+        <a routerLink="/gallery" class="cta-button">View Gallery</a>
+      </div>
+    </section>
+  
+    <!-- Featured Work Preview - like sample exhibits near the entrance -->
+    <section class="featured-work">
+      <h2>Featured Photography</h2>
+      <div class="featured-grid">
+        <!-- Feature 3-4 of your best photos here -->
+        <div class="featured-item" *ngFor="let photo of featuredPhotos">
+          <a [routerLink]="['/photo', photo.id]" class="photo-link">
+            <img [src]="photo.url" [alt]="photo.title" title="Click to view details">
+            <div class="photo-overlay">
+              <h3>{{ photo.title }}</h3>
+              <p>{{ photo.category }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="text-center">
+        <a routerLink="/gallery" class="secondary-button">See Full Gallery</a>
+      </div>
+    </section>
+  
+    <!-- Brief Introduction - like a welcome sign about the curator -->
+    <section class="intro-section">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h2>Hello, I'm Alex Johnson</h2>
+          <p>I'm a Portland-based photographer specializing in capturing authentic moments that tell a story. With over 10 years of experience, I bring technical expertise and artistic vision to every shoot.</p>
+          <a routerLink="/about" class="text-link">Learn more about me →</a>
+        </div>
+        <div class="intro-image">
+          <!-- Placeholder pentru imaginea fotografului -->
+          <img src="/assets/images/photographer.jpg" alt="Alex Johnson">
+        </div>
+      </div>
+    </section>
+  
+    <!-- Services/Specialties - like a directory of gallery wings -->
+    <section class="specialties-section">
+      <h2>Photography Specialties</h2>
+      <div class="specialty-grid">
+        <div class="specialty-card">
+          <div class="specialty-icon">🏞️</div>
+          <h3>Landscape</h3>
+          <p>Capturing nature's beauty from mountains to oceans</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">👤</div>
+          <h3>Portrait</h3>
+          <p>Professional and personal portraits that show your authentic self</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">🦊</div>
+          <h3>Wildlife</h3>
+          <p>Animals in their natural habitat, captured with patience</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">🏙️</div>
+          <h3>Architecture</h3>
+          <p>Urban structures and buildings showing design and purpose</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Call to Action - like signs directing to important areas -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2>Ready to Work Together?</h2>
+        <p>Whether you need professional portraits, event photography, or are interested in purchasing prints.</p>
+        <a routerLink="/contact" class="cta-button">Contact Me</a>
+      </div>
+    </section>
+  </div>

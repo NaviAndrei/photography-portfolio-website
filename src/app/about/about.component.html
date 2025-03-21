@@ -1,0 +1,65 @@
+<div class="about-container">
+    <div class="about-content">
+      <!-- Left side: Photographer image and quick facts -->
+      <div class="photographer-image-section">
+        <!-- Placeholder for photographer's portrait -->
+        <div class="photographer-image">
+          <img src="assets/images/photographer.jpg" alt="Photographer" />
+        </div>
+        
+        <!-- Quick facts - like a summary card next to the portrait -->
+        <div class="quick-facts">
+          <h3>Location</h3>
+          <p>{{ photographer.location }}</p>
+          
+          <h3>Specialties</h3>
+          <ul class="specialty-list">
+            <li *ngFor="let specialty of photographer.specialties">
+              {{ specialty }}
+            </li>
+          </ul>
+          
+          <h3>Equipment</h3>
+          <ul class="equipment-list">
+            <li *ngFor="let item of photographer.equipment">
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Right side: Bio and story -->
+      <div class="photographer-bio-section">
+        <h1>{{ photographer.name }}</h1>
+        <h2>{{ photographer.title }}</h2>
+        
+        <!-- The bio text - the main content of this "room" -->
+        <div class="bio-text">
+          <p>{{ photographer.bio }}</p>
+          
+          <!-- Additional paragraphs about the photographer -->
+          <p>
+            Photography isn't just my profession—it's my passion. Each image represents a moment in time, 
+            a story waiting to be told, and an emotion ready to be felt.
+          </p>
+          
+          <p>
+            Whether I'm scaling mountains for the perfect landscape shot or creating an intimate 
+            environment for portrait sessions, my goal remains the same: to capture authentic moments 
+            that resonate with viewers.
+          </p>
+          
+          <p>
+            I believe that great photography goes beyond technical skill—it requires patience, 
+            vision, and a deep appreciation for the subject. My approach combines meticulous 
+            attention to detail with an intuitive understanding of light, composition, and timing.
+          </p>
+        </div>
+        
+        <!-- Might add a contact shortcut button here -->
+        <a routerLink="/contact" class="contact-button">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+</div>

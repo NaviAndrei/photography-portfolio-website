@@ -1,0 +1,177 @@
+.main-header {
+  background-color: var(--pastel-bg); // Changed from white to a gentle off-white pastel
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0;
+  border-bottom: 3px solid var(--pastel-accent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .site-title {
+    font-size: 1.6rem; // Slightly larger for improved emphasis
+    margin: 0;
+    color: var(--pastel-dark);
+    font-weight: 500;
+    letter-spacing: 0.5px; // Adds a refined touch
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      
+      &:hover {
+        color: var(--pastel-accent);
+      }
+    }
+  }
+  
+  // Buton hamburger pentru mobile
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    position: relative;
+    
+    .bar {
+      display: block;
+      width: 24px;
+      height: 3px;
+      margin: 5px 0;
+      background-color: var(--pastel-dark);
+      transition: all 0.3s ease;
+    }
+    
+    &.active {
+      .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      
+      .bar:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+    }
+  }
+  
+  .main-nav {
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      li {
+        margin-left: 1.5rem;
+        
+        a {
+          text-decoration: none;
+          color: var(--pastel-text);
+          font-weight: 500;
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            color: var(--pastel-accent);
+            background-color: var(--pastel-bg-light);
+          }
+          
+          &.active {
+            background-color: var(--pastel-accent);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Media query pentru dispozitive mobile
+@media (max-width: 768px) {
+  .main-header {
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .site-title {
+      font-size: 1.3rem;
+    }
+    
+    .mobile-menu-toggle {
+      display: block;
+    }
+    
+    .main-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: var(--pastel-bg);
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+      padding: 80px 20px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+      
+      &.mobile-open {
+        right: 0;
+      }
+      
+      ul {
+        flex-direction: column;
+        
+        li {
+          margin: 0 0 15px 0;
+          
+          a {
+            display: block;
+            padding: 10px 15px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  
+  .menu-overlay {
+    display: block;
+  }
+}

@@ -1,1 +1,99 @@
 /* You can add global styles to this file, and also import other style files */
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+/* Paletă de culori pastelate */
+:root {
+  --pastel-blue: #A0CADB;
+  --pastel-green: #C3E8BD;
+  --pastel-yellow: #F2E2B6;
+  --pastel-orange: #F2C1A9;
+  --pastel-pink: #F2C2D4;
+  --pastel-purple: #D7C1E0;
+
+  --pastel-cream: #FFF6E5;
+  --misty-peach: #FFE3D3; 
+  
+  --pastel-dark: #5D5C61;
+  --pastel-text: #4A4A4A;
+  --pastel-bg-light: #F5F5F5;
+  --pastel-bg: #FAF3F0;
+  --pastel-accent: var(--pastel-blue);
+  --pastel-accent-dark: #809EAB;
+  
+  /* Variabile RGB pentru utilizarea opacității */
+  --pastel-accent-rgb: 160, 202, 219; /* RGB pentru pastel-blue */
+  --pastel-green-rgb: 195, 232, 189;
+  --pastel-yellow-rgb: 242, 226, 182;
+  --pastel-orange-rgb: 242, 193, 169;
+  --pastel-pink-rgb: 242, 194, 212;
+  --pastel-purple-rgb: 215, 193, 224;
+  --pastel-dark-rgb: 93, 92, 97;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--pastel-text);
+  background-color: #FFF6E5;
+  padding-top: 60px; /* Eliminăm compensarea pentru header-ul fix */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Global button styles */
+button {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Primary button style */
+.btn-primary {
+  background-color: var(--pastel-accent);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: var(--pastel-dark);
+  }
+}
+
+/* Stiluri pentru headere */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--pastel-dark);
+}
+
+/* Stiluri pentru linkuri */
+a {
+  color: var(--pastel-accent);
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: var(--pastel-dark);
+  }
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Stiluri pentru footer */
+.main-footer {
+  margin-top: 0 !important; /* Forțăm eliminarea marginii de sus */
+}

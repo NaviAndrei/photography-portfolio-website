@@ -1,0 +1,37 @@
+<div class="gallery-container">
+  <h1 class="gallery-title">Photography Gallery</h1>
+  
+  <div class="category-filters">
+    <button 
+      class="filter-button" 
+      [class.active]="selectedCategory === 'all'"
+      (click)="filterByCategory('all')">
+      All
+    </button>
+    
+    <button 
+      *ngFor="let category of categories" 
+      class="filter-button"
+      [class.active]="selectedCategory === category"
+      (click)="filterByCategory(category)">
+      {{ category | titlecase }}
+    </button>
+  </div>
+  
+  <div class="photo-grid">
+    <div class="photo-item" *ngFor="let photo of filteredPhotos">
+      <a [routerLink]="['/photo', photo.id]">
+        <img [src]="photo.url" [alt]="photo.title" class="photo-image" title="Click to view details">
+        <div class="photo-info">
+          <h3 class="photo-title">{{ photo.title }}</h3>
+          <p class="photo-category">{{ photo.category | titlecase }}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Message to show if no photos match the filter -->
+  <div *ngIf="filteredPhotos.length === 0" class="no-photos">
+    No photos found in this category.
+  </div>
+</div>

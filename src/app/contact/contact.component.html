@@ -1,0 +1,116 @@
+<div class="contact-container">
+    <div class="contact-content">
+      <!-- Left column: Contact information -->
+      <div class="contact-info">
+        <h1>Get in Touch</h1>
+        
+        <p class="contact-intro">
+          Interested in booking a photography session, purchasing prints, or just 
+          have a question? I'd love to hear from you!
+        </p>
+        
+        <!-- Contact details - like having business cards at the info desk -->
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="icon">✉️</span>
+            <span class="detail">hello&#64;photographyportfolio.com</span>
+          </div>
+          
+          <div class="contact-item">
+            <span class="icon">📱</span>
+            <span class="detail">(555) 123-4567</span>
+          </div>
+          
+          <div class="contact-item">
+            <span class="icon">📍</span>
+            <span class="detail">Portland, Oregon</span>
+          </div>
+        </div>
+        
+        <!-- Social media links - like having social media cards -->
+        <div class="social-links">
+          <h3>Connect With Me</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" title="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="social-icon" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right column: Contact form -->
+      <div class="contact-form-container">
+        <!-- Success message - to show after form submission -->
+        <div *ngIf="formSubmitted" class="success-message">
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+        </div>
+        
+        <!-- The actual form - like the visitor's book in a gallery -->
+        <form *ngIf="!formSubmitted" (ngSubmit)="onSubmit()" class="contact-form">
+          <h2>Send Me a Message</h2>
+          
+          <!-- Error message - shows if validation fails -->
+          <div *ngIf="formSubmitError" class="error-message">
+            Please fill in all required fields.
+          </div>
+          
+          <!-- Name field -->
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              [(ngModel)]="contactForm.name" 
+              required
+            >
+          </div>
+          
+          <!-- Email field -->
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="contactForm.email" 
+              required
+            >
+          </div>
+          
+          <!-- Subject field -->
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              [(ngModel)]="contactForm.subject"
+            >
+          </div>
+          
+          <!-- Message field -->
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="5" 
+              [(ngModel)]="contactForm.message" 
+              required
+            ></textarea>
+          </div>
+          
+          <!-- Submit button -->
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>

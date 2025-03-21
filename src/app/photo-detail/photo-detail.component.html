@@ -1,0 +1,38 @@
+<div class="photo-detail-container" *ngIf="photo; else noPhoto">
+  <!-- Back button - like an exit sign back to the main gallery -->
+  <button class="back-button" (click)="goBack()">
+    &larr; Back to Gallery
+  </button>
+  
+  <div class="photo-content">
+    <!-- Main photo display - the spotlight on the artwork -->
+    <div class="photo-display">
+      <img [src]="photo.responsiveUrl || photo.url" [alt]="photo.title" class="featured-image" title="Click to view details">
+    </div>
+    
+    <!-- Photo information panel - like the detailed information plaque -->
+    <div class="photo-info">
+      <h1 class="photo-title">{{ photo.title }}</h1>
+      
+      <div class="photo-metadata">
+        <span class="photo-category">{{ photo.category | titlecase }}</span>
+        <span class="photo-date" *ngIf="photo.dateTaken">
+          Taken on {{ photo.dateTaken | date:'longDate' }}
+        </span>
+      </div>
+      
+      <p class="photo-description">{{ photo.description }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Template to show if no photo is found -->
+<ng-template #noPhoto>
+  <div class="no-photo-message">
+    <h2>Photo not found</h2>
+    <p>Sorry, we couldn't find the photo you're looking for.</p>
+    <button class="back-button" (click)="goBack()">
+      Return to Gallery
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,24 @@
+<header class="main-header">
+  <div class="container">
+    <h1 class="site-title"><a routerLink="/">Photography Portfolio</a></h1>
+    
+    <!-- Buton hamburger pentru mobile -->
+    <button class="mobile-menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    
+    <nav class="main-nav" [class.mobile-open]="isMenuOpen">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a></li>
+        <li><a routerLink="/gallery" routerLinkActive="active" (click)="closeMenu()">Gallery</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <!-- Overlay pentru când meniul este deschis pe mobile -->
+  <div class="menu-overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
+</header>
